@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>连连看游戏</title>
+    <link rel="stylesheet" href="link.css">
+</head>
+<body>
+    <div id="userPanel">
+        <span>用户名: <span id="usernameDisplay"></span></span>
+        <button onclick="returnToSelection()">返回</button>
+    </div>
+    <div id="gameContainer">
+        <h1>连连看游戏</h1>
+        <select id="difficulty">
+            <option value="easy">简单</option>
+            <option value="medium">中等</option>
+            <option value="hard">困难</option>
+        </select>
+        <button onclick="startGame()">开始游戏</button>
+        <div id="grid"></div>
+        <div class="scoreboard">
+            <div>得分: <span id="score">20</span></div>
+            <div>用时: <span id="time">9</span>秒</div>
+            <div>最快用时: <span id="bestTime">91</span>秒</div>
+        </div>
+    </div>
+    <script src="link.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>选择游戏</title>
+    <style>
+        /* 设置整个页面的样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: linear-gradient(to right, #74ebd5, #ACB6E5); /* 添加渐变背景 */
+        }
+
+        /* 设置游戏选项按钮的样式 */
+        .game-option {
+            margin: 15px;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 1.2em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-option:hover {
+            transform: scale(1.05);
+            background-color: #45a049;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        /* 用户信息和控制按钮的样式 */
+        #user-display, .controls {
+            color: #333;
+            font-size: 1.2em;
+            margin: 20px 0;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+        }
+
+        /* 退出登录按钮的样式 */
+        button {
+            margin-left: 20px;
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1.1em;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #d32f2f;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="user-display"></div> <!-- 显示当前登录的用户名 -->
+    <h1>请选择一个游戏</h1>
+    <div class="game-option" onclick="window.location.href='game_snake/snake.html';">贪吃蛇游戏</div> <!-- 跳转到贪吃蛇游戏 -->
+    <div class="game-option" onclick="window.location.href='game_link/link.html';">连连看游戏</div> <!-- 跳转到连连看游戏 -->
+    <div class="controls">
+        <button onclick="logout()">退出登录</button> <!-- 提供退出登录的按钮 -->
+    </div>
+
+    <script src="login.js"></script>
+    <script>
+        // 页面加载时，显示当前登录用户的用户名
+        window.onload = function() {
+            const username = localStorage.getItem('username');
+            if (username) {
+                document.getElementById('user-display').innerText = `欢迎，${username}`;
+            }
+        };
+    </script>
+</body>
+</html>
